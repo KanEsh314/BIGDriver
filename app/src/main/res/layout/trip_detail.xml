@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/trip_tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/smallPadding">
+
+        <TextView
+            android:id="@+id/trip_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="19KM"
+            android:textColor="@color/colorDark"
+            android:textSize="@dimen/smallUniversalText"/>
+
+        <TextView
+            android:id="@+id/trip_payment_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="CASH"
+            android:textColor="@color/colorDark"
+            android:textSize="@dimen/smallUniversalText" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/smallPadding">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pick Up"
+            android:textColor="@color/colorDark"
+            android:textSize="@dimen/smallUniversalText" />
+
+        <TextView
+            android:id="@+id/trip_pick_up"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/mediumPadding"
+            android:gravity="center"
+            android:text="Kuala Lumpur City Centre, 50088 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur"
+            android:textColor="@color/colorDark"
+            android:textSize="@dimen/smallUniversalText" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/trip_drop_off"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/smallPadding">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Drop Off"
+            android:textColor="@color/colorDark"
+            android:textSize="@dimen/smallUniversalText" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/mediumPadding"
+            android:gravity="center"
+            android:text="Kuala Lumpur City Centre, 50088 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur"
+            android:textColor="@color/colorDark"
+            android:textSize="@dimen/smallUniversalText" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/trip_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/smallPadding">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/mediumPadding"
+            android:gravity="center"
+            android:text="RM 50"
+            android:textColor="@color/colorDark"
+            android:textSize="@dimen/smallUniversalText" />
+
+    </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Accept Job"
+        android:background="@color/colorPrimary"/>
+</LinearLayout>

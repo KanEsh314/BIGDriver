@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="largeUniversalText">35sp</dimen>
+    <dimen name="mediumUniversalText">21sp</dimen>
+    <dimen name="smallUniversalText">14sp</dimen>
+
+    <dimen name="smallPadding">8dp</dimen>
+    <dimen name="mediumPadding">16dp</dimen>
+    <dimen name="largePadding">24dp</dimen>
+</resources>
