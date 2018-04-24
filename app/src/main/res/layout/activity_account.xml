@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".AccountActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/account_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
+            app:layout_collapseMode="pin">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="EDIT PROFILE"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold"
+                    fontPath="fonts/SourceSansPro-Semibold.ttf"
+                    android:textSize="18sp"
+                    tools:ignore="MissingPrefix"/>
+
+            </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profilePicture"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="72dp"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:src="@drawable/tour1"
+                android:translationZ="100000dp"
+                app:fabSize="normal" />
+
+            <TextView
+                android:id="@+id/name_title"
+                fontPath="fonts/SourceSansPro-Regular.ttf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profilePicture"
+                android:layout_marginBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:text="NAME"
+                android:textColor="@color/card_sub_title"
+                android:textSize="14sp"
+                tools:ignore="MissingPrefix" />
+
+            <EditText
+                android:id="@+id/name"
+                fontPath="fonts/SourceSansPro-Regular.ttf"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@id/name_title"
+                android:background="@drawable/list_button"
+                android:hint="Your name"
+                android:inputType="textCapWords"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textAlignment="textStart"
+                android:textColor="@color/product_name"
+                android:textSize="16sp"
+                tools:ignore="MissingPrefix" />
+
+            <TextView
+                android:id="@+id/phone_title"
+                fontPath="fonts/SourceSansPro-Regular.ttf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/name"
+                android:layout_marginBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:text="PHONE NUMBER"
+                android:textColor="@color/card_sub_title"
+                android:textSize="14sp"
+                tools:ignore="MissingPrefix" />
+
+            <EditText
+                android:id="@+id/hp_nbr"
+                fontPath="fonts/SourceSansPro-Regular.ttf"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@id/phone_title"
+                android:background="@drawable/list_button"
+                android:hint="Your phone number"
+                android:inputType="number"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textAlignment="textStart"
+                android:textColor="@color/product_name"
+                android:textSize="16sp"
+                tools:ignore="MissingPrefix" />
+
+            <TextView
+                android:id="@+id/address_title"
+                fontPath="fonts/SourceSansPro-Regular.ttf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/hp_nbr"
+                android:layout_marginBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:text="ADDRESS"
+                android:textColor="@color/card_sub_title"
+                android:textSize="14sp"
+                tools:ignore="MissingPrefix" />
+
+            <EditText
+                android:id="@+id/address"
+                fontPath="fonts/SourceSansPro-Regular.ttf"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@id/address_title"
+                android:background="@drawable/list_button"
+                android:hint="Your phone number"
+                android:inputType="text"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textAlignment="textStart"
+                android:textColor="@color/product_name"
+                android:textSize="16sp"
+                tools:ignore="MissingPrefix" />
+
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>

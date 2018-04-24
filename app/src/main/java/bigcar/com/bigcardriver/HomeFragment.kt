@@ -1,11 +1,14 @@
 package bigcar.com.bigcardriver
 
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -13,6 +16,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.MarkerOptions
+import kotlinx.android.synthetic.main.fragment_home.*
 
 /**
  * A simple [Fragment] subclass.
@@ -57,6 +61,34 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
                 mMap.animateCamera(CameraUpdateFactory.zoomTo(15F), 2000, null)
             }
 
+        })
+    }
+
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        tripReceived.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(v: View?) {
+                val dialogBuilder = AlertDialog.Builder(activity, R.style.DialogTheme)
+                val inflater = layoutInflater
+                val dialogView = inflater.inflate(R.layout.alert_trip, null)
+                dialogBuilder.setView(dialogView)
+
+                dialogBuilder.setTitle("New Trip")
+                dialogBuilder.setPositiveButton("Accept", object : DialogInterface.OnClickListener{
+                    override fun onClick(dialog: DialogInterface?, which: Int) {
+                        Toast.makeText(context, "Trip Accepted", Toast.LENGTH_LONG).show()
+                    }
+                })
+                dialogBuilder.setNegativeButton("Decline", object : DialogInterface.OnClickListener{
+                    override fun onClick(dialog: DialogInterface?, which: Int) {
+                        Toast.makeText(context, "Trip Declined", Toast.LENGTH_LONG).show()
+                    }
+
+                })
+                .create()
+                .show()
+            }
         })
     }
 }

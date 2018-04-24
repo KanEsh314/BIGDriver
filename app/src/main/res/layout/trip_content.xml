@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/medium"
+    android:layout_marginBottom="@dimen/large">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/owner_info_Layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/tourDriver"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/tour1"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/medium">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="WD8690C"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/smallUniversalText"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="AHMAD HARMI BIN MOHAMAD"
+                    android:textColor="@color/colorDark"
+                    android:textSize="@dimen/smallUniversalText" />
+
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/tripTagLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/owner_info_Layout"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tag this trip as"
+                android:textSize="@dimen/smallUniversalText"
+                android:textColor="@color/colorDark"/>
+
+            <TextView
+                android:id="@+id/tripTag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Personal"
+                android:textSize="@dimen/smallUniversalText"
+                android:textColor="@color/colorDark"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/tripLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@id/tripTagLayout">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_margin="@dimen/small"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/tour1"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/small"
+                    android:text="CyberJaya"
+                    android:textSize="@dimen/smallUniversalText"
+                    android:textColor="@color/colorDark"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_margin="@dimen/small"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/tour1"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/small"
+                    android:text="Kuala Lumpur"
+                    android:textSize="@dimen/smallUniversalText"
+                    android:textColor="@color/colorDark"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/tripLayout">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fare : "
+                android:textSize="@dimen/smallUniversalText"
+                android:textColor="@color/colorDark"/>
+
+            <TextView
+                android:id="@+id/trip_currency_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RM "
+                android:textSize="@dimen/smallUniversalText"
+                android:textColor="@color/colorDark"/>
+
+            <TextView
+                android:id="@+id/trip_fare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="28.20 "
+                android:textSize="@dimen/smallUniversalText"
+                android:textColor="@color/colorDark"/>
+        </LinearLayout>
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

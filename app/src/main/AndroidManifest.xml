@@ -25,7 +25,13 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".ForgotActivity" />
+        <activity android:name=".AccountActivity" />
+        <activity android:name=".StartActivity" />
+        <activity android:name=".CompletedTripActivity"></activity>
     </application>
 
 </manifest>
