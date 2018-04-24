@@ -4,4 +4,11 @@
     <color name="colorPrimaryDark">#2D5E4A</color>
     <color name="colorAccent">#FFFFFF</color>
     <color name="colorDark">#000000</color>
+
+    <color name="start_page_overlay">#90111111</color>
+    <color name="product_name">#111111</color>
+    <color name="card_sub_title">#989FAA</color>
+    <color name="placeholder">#202E313C</color>
+
+    <color name="tabBG">#60FFFFFF</color>
 </resources>
