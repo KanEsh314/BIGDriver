@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "724973945478",
+    "firebase_url": "https://bigcar-driver.firebaseio.com",
+    "project_id": "bigcar-driver",
+    "storage_bucket": "bigcar-driver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:724973945478:android:f501f0530570a537",
+        "android_client_info": {
+          "package_name": "bigcar.com.bigcardriver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "724973945478-60s7hpqe9pb3gpa4ocsiuo1nvtcv3htr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhaS7hF9U9zlkI36bvQvGkCkBOp_u3J50"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

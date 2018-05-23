@@ -31,7 +31,12 @@
         <activity android:name=".ForgotActivity" />
         <activity android:name=".AccountActivity" />
         <activity android:name=".StartActivity" />
-        <activity android:name=".CompletedTripActivity"></activity>
+        <activity android:name=".CompletedTripActivity" />
+
+        <service
+            android:name=".FirebaseMessagingService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>
