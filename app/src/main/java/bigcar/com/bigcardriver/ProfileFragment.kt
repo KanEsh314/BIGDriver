@@ -122,11 +122,11 @@ class ProfileFragment : Fragment() {
             }
         })
 
-        accept_trip.setOnClickListener(object : View.OnClickListener{
-            override fun onClick(v: View?) {
-                startActivity(Intent(context, AcceptedTripActivity::class.java))
-            }
-        })
+//        accept_trip.setOnClickListener(object : View.OnClickListener{
+//            override fun onClick(v: View?) {
+//                startActivity(Intent(context, AcceptedTripActivity::class.java))
+//            }
+//        })
 
         current_trip.setOnClickListener(object : View.OnClickListener{
             override fun onClick(v: View?) {

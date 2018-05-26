@@ -160,30 +160,30 @@
                     android:textAllCaps="false"
                     tools:ignore="MissingPrefix"/>
 
-                <Button
-                    android:id="@+id/accept_trip"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_below="@id/current_trip"
-                    android:background="@drawable/list_button"
-                    android:drawableEnd="@mipmap/ic_action_arrow"
-                    android:text="Accepted Trip"
-                    android:maxLines="1"
-                    android:ellipsize="end"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp"
-                    android:textAlignment="textStart"
-                    android:textSize="16sp"
-                    android:textColor="@color/product_name"
-                    fontPath="fonts/SourceSansPro-Regular.ttf"
-                    android:textAllCaps="false"
-                    tools:ignore="MissingPrefix" />
+                <!--<Button-->
+                    <!--android:id="@+id/accept_trip"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="50dp"-->
+                    <!--android:layout_below="@id/current_trip"-->
+                    <!--android:background="@drawable/list_button"-->
+                    <!--android:drawableEnd="@mipmap/ic_action_arrow"-->
+                    <!--android:text="Accepted Trip"-->
+                    <!--android:maxLines="1"-->
+                    <!--android:ellipsize="end"-->
+                    <!--android:paddingLeft="20dp"-->
+                    <!--android:paddingRight="20dp"-->
+                    <!--android:textAlignment="textStart"-->
+                    <!--android:textSize="16sp"-->
+                    <!--android:textColor="@color/product_name"-->
+                    <!--fontPath="fonts/SourceSansPro-Regular.ttf"-->
+                    <!--android:textAllCaps="false"-->
+                    <!--tools:ignore="MissingPrefix" />-->
 
                 <Button
                     android:id="@+id/completed_trip"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:layout_below="@id/accept_trip"
+                    android:layout_below="@id/current_trip"
                     android:background="@drawable/list_button"
                     android:drawableEnd="@mipmap/ic_action_arrow"
                     android:text="Completed Trip"
