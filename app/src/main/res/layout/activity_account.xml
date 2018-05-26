@@ -56,7 +56,6 @@
                 android:layout_margin="72dp"
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center"
-                android:src="@drawable/tour1"
                 android:translationZ="100000dp"
                 app:fabSize="normal" />
 

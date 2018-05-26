@@ -1,5 +1,6 @@
 package bigcar.com.bigcardriver
 
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -14,7 +15,12 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 
         Handler().postDelayed({
-            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+            val intent = Intent(this@SplashActivity, MainActivity::class.java)
+            if(applicationContext.getSharedPreferences("myPref", Context.MODE_PRIVATE).getString("myToken", "") == ""){
+                startActivity(Intent(this@SplashActivity, StartActivity::class.java))
+            }else{
+                startActivity(intent)
+            }
             finish()
         },splash_screen.toLong())
     }

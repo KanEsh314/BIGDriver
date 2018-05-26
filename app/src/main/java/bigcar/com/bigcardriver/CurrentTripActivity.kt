@@ -1,9 +1,7 @@
 package bigcar.com.bigcardriver
 
-import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
 import android.util.Log
 import android.view.MenuItem
 import com.android.volley.AuthFailureError
@@ -12,24 +10,24 @@ import com.android.volley.Response
 import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_completed_trip.*
+import kotlinx.android.synthetic.main.activity_current_trip.*
 import org.json.JSONObject
 
-class CompletedTripActivity : AppCompatActivity() {
+class CurrentTripActivity : AppCompatActivity() {
 
-    var completedURL = "https://gentle-atoll-11837.herokuapp.com/api/completedtrip"
+    var currentdURL = "https://gentle-atoll-11837.herokuapp.com/api/currenttrip"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_completed_trip)
+        setContentView(R.layout.activity_current_trip)
 
-        setSupportActionBar(toolbar_completed)
+        setSupportActionBar(toolbar_current)
         supportActionBar!!.setDisplayShowHomeEnabled(true)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         val sharedPreferences = applicationContext.getSharedPreferences("myPref", MODE_PRIVATE).getString("myToken","")
-        var jsonRequest = object  : JsonObjectRequest(Request.Method.GET, completedURL, null, object : Response.Listener<JSONObject>{
+        var jsonRequest = object  : JsonObjectRequest(Request.Method.GET, currentdURL, null, object : Response.Listener<JSONObject>{
             override fun onResponse(response: JSONObject) {
                 Log.d("Debug", response.toString())
             }

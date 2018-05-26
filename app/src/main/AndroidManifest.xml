@@ -36,7 +36,11 @@
         <service
             android:name=".FirebaseMessagingService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
+
+        <activity android:name=".VehicleRegistrationActivity" />
+        <activity android:name=".AcceptedTripActivity" />
+        <activity android:name=".CurrentTripActivity"></activity>
     </application>
 
 </manifest>

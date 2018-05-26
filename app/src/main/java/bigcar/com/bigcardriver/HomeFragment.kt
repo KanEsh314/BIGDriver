@@ -1,20 +1,27 @@
 package bigcar.com.bigcardriver
 
-
+import android.Manifest
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.DialogInterface
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.support.design.widget.Snackbar
+import android.support.v4.app.ActivityCompat
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import bigcar.com.bigcardriver.R.id.tripReceived
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -25,6 +32,10 @@ import kotlinx.android.synthetic.main.fragment_home.*
 class HomeFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
+    private val REQUEST_PERMISSIONS_REQUEST_CODE = 34
+
+    private var myLocation:LatLng = LatLng(0.0,0.0)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -33,35 +44,76 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
 
         val mapFragment = childFragmentManager.findFragmentById(R.id.maps) as SupportMapFragment
         mapFragment.getMapAsync(this)
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(context)
 
         return myView
     }
 
+    private fun requestPermission() {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.ACCESS_COARSE_LOCATION)) {
+            Log.i("Info", "Displaying permission rationale to provide additional context.")
+        } else {
+            Log.i("Info", "Requesting permission")
+            startLocationPermissionRequest()
+        }
+    }
+
+    private fun startLocationPermissionRequest() {
+        ActivityCompat.requestPermissions(activity, arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION),
+                REQUEST_PERMISSIONS_REQUEST_CODE)
+    }
+
+    @SuppressLint("MissingPermission")
+    private fun getLastLocation() {
+
+        fusedLocationClient.lastLocation
+                .addOnCompleteListener{ task ->
+                    if (task.isSuccessful && task.result != null) {
+                        myLocation = LatLng(task.result.latitude, task.result.longitude)
+                    } else {
+                        Log.d("Debug","getLastLocation:exception"+task.exception)
+                        showSnackbar(R.string.no_location_detected)
+                    }
+                }
+    }
+
+    private fun showSnackbar(
+            snackStrId: Int,
+            actionStrId: Int = 0,
+            listener: View.OnClickListener? = null
+    ) {
+        val snackbar = Snackbar.make(coordinateLayout, getString(snackStrId),
+                Snackbar.LENGTH_INDEFINITE)
+        if (actionStrId != 0 && listener != null) {
+            snackbar.setAction(getString(actionStrId), listener)
+        }
+        snackbar.show()
+    }
+
+    private fun checkPermissions() =
+            ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
+
+    @SuppressLint("MissingPermission")
     override fun onMapReady(map: GoogleMap) {
         mMap = map
-        mMap.isMyLocationEnabled
+        mMap.isMyLocationEnabled = true
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL)
         mMap.setOnMapLoadedCallback(object :GoogleMap.OnMapLoadedCallback{
             override fun onMapLoaded() {
-                val locations = ArrayList<LatLng>()
-                locations.add(LatLng(3.1577636,101.71186))
-                locations.add(LatLng(3.1614164,101.71887160000006))
-                locations.add(LatLng(3.1537798,101.71322140000007))
-
-                for (latlng in locations){
-                    mMap.addMarker(MarkerOptions().position(latlng).title("Title can be anything"))
-                }
-
-                val builder = LatLngBounds.Builder()
-                builder.include(locations.get(0)) //Taking Point A (First LatLng)
-                builder.include(locations.get(locations.size - 1)) //Taking Point B (Second LatLng)
-                val bounds = builder.build()
-                val cu = CameraUpdateFactory.newLatLngBounds(bounds, 200)
-                mMap.moveCamera(cu)
-                mMap.animateCamera(CameraUpdateFactory.zoomTo(15F), 2000, null)
+                mMap.addMarker(MarkerOptions().position(myLocation).title("Title can be anything"))
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myLocation,18F))
             }
 
         })
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if (!checkPermissions()) {
+            requestPermission()
+        } else {
+            getLastLocation()
+        }
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {

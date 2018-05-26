@@ -1,6 +1,5 @@
 package bigcar.com.bigcardriver
 
-
 import android.app.ProgressDialog
 import android.content.Context.MODE_PRIVATE
 import android.content.DialogInterface
@@ -10,8 +9,7 @@ import android.support.v4.app.Fragment
 import android.support.v7.app.AlertDialog
 import android.util.Log
 import android.view.*
-import bigcar.com.bigcardriver.R.id.completed_trip
-import bigcar.com.bigcardriver.R.id.my_account
+import bigcar.com.bigcardriver.R.id.name_user
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
@@ -121,6 +119,18 @@ class ProfileFragment : Fragment() {
         my_account.setOnClickListener(object : View.OnClickListener{
             override fun onClick(v: View?) {
                 startActivity(Intent(context, AccountActivity::class.java))
+            }
+        })
+
+        accept_trip.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(v: View?) {
+                startActivity(Intent(context, AcceptedTripActivity::class.java))
+            }
+        })
+
+        current_trip.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(v: View?) {
+                startActivity(Intent(context, CurrentTripActivity::class.java))
             }
         })
 

@@ -84,7 +84,6 @@
                         android:layout_height="wrap_content"
                         android:textSize="18sp"
                         android:lineSpacingExtra="8dp"
-                        android:text="myName"
                         android:textColor="@color/product_name"
                         fontPath="fonts/SourceSansPro-Semibold.ttf"
                         tools:ignore="MissingPrefix"
