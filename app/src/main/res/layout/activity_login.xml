@@ -93,14 +93,15 @@
                 android:id="@+id/tagline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/rubik_light"
                 android:lineSpacingExtra="8dp"
                 android:text="WE SERVE YOU OUR BEST AT ANY SERVICES"
-                android:textColor="@color/product_name"
-                tools:ignore="MissingPrefix"
                 android:textAlignment="center"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="10dp"/>
+                android:textColor="@color/product_name"
+                android:textSize="20sp"
+                tools:ignore="MissingPrefix" />
 
             <!-- SEPERATOR -->
             <RelativeLayout
@@ -134,7 +135,7 @@
                         android:text="Email Address"
                         android:layout_marginBottom="10dp"
                         android:textSize="14sp"
-                        fontPath="fonts/SourceSansPro-Regular.ttf"
+                        android:fontFamily="@font/rubik_light"
                         tools:ignore="MissingPrefix"
                         android:textColor="@color/card_sub_title"/>
 
@@ -145,7 +146,7 @@
                         android:hint="Enter your email"
                         android:textColorHint="@color/placeholder"
                         android:layout_below="@id/label_email"
-                        fontPath="fonts/SourceSansPro-Regular.ttf"
+                        android:fontFamily="@font/rubik_light"
                         tools:ignore="MissingPrefix"
                         android:textSize="18sp"
                         android:textColor="@color/colorPrimary"
@@ -160,7 +161,7 @@
                         android:text="Password"
                         android:layout_marginBottom="10dp"
                         android:textSize="14sp"
-                        fontPath="fonts/SourceSansPro-Regular.ttf"
+                        android:fontFamily="@font/rubik_light"
                         tools:ignore="MissingPrefix"
                         android:textColor="@color/card_sub_title"
                         android:layout_below="@id/login_email"/>
@@ -172,7 +173,7 @@
                         android:hint="Enter your password"
                         android:textColorHint="@color/placeholder"
                         android:layout_below="@id/label_password"
-                        fontPath="fonts/SourceSansPro-Regular.ttf"
+                        android:fontFamily="@font/rubik_light"
                         tools:ignore="MissingPrefix"
                         android:inputType="textPassword"
                         android:textSize="18sp"
@@ -192,7 +193,7 @@
                             android:layout_height="wrap_content"
                             android:text="LET'S GO"
                             android:textColor="@color/colorAccent"
-                            fontPath="fonts/SourceSansPro-Semibold.ttf"
+                            android:fontFamily="@font/rubik_light"
                             tools:ignore="MissingPrefix"
                             android:textSize="18sp"
                             android:layout_centerInParent="true"/>
@@ -210,7 +211,7 @@
                 android:text="Forgot Password?"
                 android:layout_marginTop="15dp"
                 android:layout_centerHorizontal="true"
-                fontPath="fonts/SourceSansPro-Regular.ttf"
+                android:fontFamily="@font/rubik_light"
                 tools:ignore="MissingPrefix"
                 android:textSize="14sp"
                 android:textColor="@color/card_sub_title"

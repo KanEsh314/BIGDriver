@@ -32,7 +32,6 @@ class ProfileFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val myView = inflater.inflate(R.layout.fragment_profile, container, false)
-        setHasOptionsMenu(true)
 
         val seperator_layout = myView.findViewById<View>(R.id.seperator)
         if (context.getSharedPreferences("myPref", MODE_PRIVATE).getString("myToken","") == ""){
@@ -83,36 +82,6 @@ class ProfileFragment : Fragment() {
         requestVolley.add(jsonRequest)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
-            R.id.log_out -> {
-                AlertDialog.Builder(activity, R.style.DialogTheme)
-                        .setCancelable(false)
-                        .setTitle("Logout")
-                        .setMessage("Are Sure you Want To Logout")
-                        .setPositiveButton("Yes", object : DialogInterface.OnClickListener {
-                            override fun onClick(dialog: DialogInterface?, which: Int) {
-                                context.getSharedPreferences("myPref", MODE_PRIVATE).edit().remove("myToken").commit()
-                            }
-                        })
-                        .setNegativeButton("No", object : DialogInterface.OnClickListener {
-                            override fun onClick(dialog: DialogInterface, which: Int) {
-                                dialog.dismiss()
-                            }
-                        })
-                        .create()
-                        .show()
-                return true
-            }
-            R.id.log_in -> {
-                startActivity(Intent(context, StartActivity::class.java))
-                return true
-            }
-
-            else -> return super.onOptionsItemSelected(item)
-        }
-    }
-
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -139,33 +108,27 @@ class ProfileFragment : Fragment() {
                 startActivity(Intent(context, CompletedTripActivity::class.java))
             }
         })
+
+        log_out.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(v: View?) {
+                AlertDialog.Builder(activity, R.style.DialogTheme)
+                        .setCancelable(false)
+                        .setTitle("Logout")
+                        .setMessage("Are Sure you Want To Logout")
+                        .setPositiveButton("Yes", object : DialogInterface.OnClickListener {
+                            override fun onClick(dialog: DialogInterface?, which: Int) {
+                                context.getSharedPreferences("myPref", MODE_PRIVATE).edit().remove("myToken").commit()
+                                startActivity(Intent(activity, LoginActivity::class.java))
+                            }
+                        })
+                        .setNegativeButton("No", object : DialogInterface.OnClickListener {
+                            override fun onClick(dialog: DialogInterface, which: Int) {
+                                dialog.dismiss()
+                            }
+                        })
+                        .create()
+                        .show()
+            }
+        })
     }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.profile_main_menu,menu)
-
-        val log_in = menu.findItem(R.id.log_in)
-        log_in.setVisible(false)
-        val log_out = menu.findItem(R.id.log_in)
-        log_out.setVisible(false)
-
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-
-    override fun onPrepareOptionsMenu(menu: Menu) {
-        super.onPrepareOptionsMenu(menu)
-
-        val log_out = menu.findItem(R.id.log_out)
-        val log_in = menu.findItem(R.id.log_in)
-
-        if(context.getSharedPreferences("myPref", MODE_PRIVATE).contains("myToken")) {
-            log_in.setVisible(false)
-            log_out.setVisible(true)
-        }else {
-            log_in.setVisible(true)
-            log_out.setVisible(false)
-        }
-
-    }
-
 }

@@ -147,7 +147,7 @@ class AccountActivity : AppCompatActivity() {
         val sharedPreferences = applicationContext.getSharedPreferences("myPref", Context.MODE_PRIVATE).getString("myToken","")
         val stringRequest = object : StringRequest(Request.Method.POST, updateURL, object : Response.Listener<String>{
             override fun onResponse(response: String?) {
-                Toast.makeText(applicationContext, "Sucessfully Updated", Toast.LENGTH_LONG).show()
+                onBackPressed()
             }
         }, object : Response.ErrorListener{
             override fun onErrorResponse(error: VolleyError?) {

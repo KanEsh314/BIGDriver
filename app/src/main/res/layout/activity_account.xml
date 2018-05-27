@@ -27,12 +27,11 @@
                 android:gravity="center_vertical">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:text="EDIT PROFILE"
                     android:textColor="@color/colorAccent"
-                    android:textStyle="bold"
-                    fontPath="fonts/SourceSansPro-Semibold.ttf"
+                    android:fontFamily="@font/rubik_light"
                     android:textSize="18sp"
                     tools:ignore="MissingPrefix"/>
 
@@ -61,7 +60,7 @@
 
             <TextView
                 android:id="@+id/name_title"
-                fontPath="fonts/SourceSansPro-Regular.ttf"
+                android:fontFamily="@font/rubik_light"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/profilePicture"
@@ -75,7 +74,7 @@
 
             <EditText
                 android:id="@+id/name"
-                fontPath="fonts/SourceSansPro-Regular.ttf"
+                android:fontFamily="@font/rubik_light"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_below="@id/name_title"
@@ -91,7 +90,7 @@
 
             <TextView
                 android:id="@+id/phone_title"
-                fontPath="fonts/SourceSansPro-Regular.ttf"
+                android:fontFamily="@font/rubik_light"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/name"
@@ -105,7 +104,7 @@
 
             <EditText
                 android:id="@+id/hp_nbr"
-                fontPath="fonts/SourceSansPro-Regular.ttf"
+                android:fontFamily="@font/rubik_light"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_below="@id/phone_title"
@@ -121,7 +120,7 @@
 
             <TextView
                 android:id="@+id/address_title"
-                fontPath="fonts/SourceSansPro-Regular.ttf"
+                android:fontFamily="@font/rubik_light"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/hp_nbr"
@@ -135,7 +134,7 @@
 
             <EditText
                 android:id="@+id/address"
-                fontPath="fonts/SourceSansPro-Regular.ttf"
+                android:fontFamily="@font/rubik_light"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_below="@id/address_title"

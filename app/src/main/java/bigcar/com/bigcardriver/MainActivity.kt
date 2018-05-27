@@ -14,6 +14,8 @@ import android.support.v7.app.AlertDialog
 import android.text.Editable
 import android.util.Log
 import android.view.MenuItem
+import android.widget.CompoundButton
+import android.widget.Toast
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
@@ -76,6 +78,13 @@ class MainActivity : AppCompatActivity() {
 //       if(hasRegistered){
            sendToken()
 //       }
+
+        status.setOnCheckedChangeListener(object : CompoundButton.OnCheckedChangeListener{
+            override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
+                Toast.makeText(applicationContext, "Status Is "+isChecked.toString(), Toast.LENGTH_SHORT).show()
+            }
+
+        })
 
 
     }

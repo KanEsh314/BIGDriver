@@ -82,14 +82,14 @@
                         android:id="@+id/name_user"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:lineSpacingExtra="8dp"
-                        android:textColor="@color/product_name"
-                        fontPath="fonts/SourceSansPro-Semibold.ttf"
-                        tools:ignore="MissingPrefix"
-                        android:textAlignment="center"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginBottom="5dp"/>
+                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/rubik_light"
+                        android:lineSpacingExtra="8dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/product_name"
+                        android:textSize="18sp"
+                        tools:ignore="MissingPrefix" />
 
                 </LinearLayout>
 
@@ -129,17 +129,17 @@
                     android:layout_height="50dp"
                     android:background="@drawable/list_button"
                     android:drawableEnd="@mipmap/ic_action_arrow"
-                    android:text="My Account"
-                    android:maxLines="1"
                     android:ellipsize="end"
+                    android:maxLines="1"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
+                    android:text="My Account"
                     android:textAlignment="textStart"
-                    android:textSize="16sp"
-                    android:textColor="@color/product_name"
-                    fontPath="fonts/SourceSansPro-Regular.ttf"
                     android:textAllCaps="false"
-                    tools:ignore="MissingPrefix"/>
+                    android:textColor="@color/product_name"
+                    android:fontFamily="@font/rubik_medium"
+                    android:textSize="16sp"
+                    tools:ignore="MissingPrefix" />
 
                 <Button
                     android:id="@+id/current_trip"
@@ -156,7 +156,7 @@
                     android:textAlignment="textStart"
                     android:textSize="16sp"
                     android:textColor="@color/product_name"
-                    fontPath="fonts/SourceSansPro-Regular.ttf"
+                    android:fontFamily="@font/rubik_medium"
                     android:textAllCaps="false"
                     tools:ignore="MissingPrefix"/>
 
@@ -194,7 +194,7 @@
                     android:textAlignment="textStart"
                     android:textSize="16sp"
                     android:textColor="@color/product_name"
-                    fontPath="fonts/SourceSansPro-Regular.ttf"
+                    android:fontFamily="@font/rubik_medium"
                     tools:ignore="MissingPrefix"
                     android:textAllCaps="false"/>
 
@@ -213,7 +213,7 @@
                     android:textAlignment="textStart"
                     android:textSize="16sp"
                     android:textColor="@color/product_name"
-                    fontPath="fonts/SourceSansPro-Regular.ttf"
+                    android:fontFamily="@font/rubik_medium"
                     tools:ignore="MissingPrefix"
                     android:textAllCaps="false" />
 
@@ -232,9 +232,28 @@
                     android:textAlignment="textStart"
                     android:textSize="16sp"
                     android:textColor="@color/product_name"
-                    fontPath="fonts/SourceSansPro-Regular.ttf"
+                    android:fontFamily="@font/rubik_medium"
                     android:textAllCaps="false"
                     tools:ignore="MissingPrefix"/>
+
+                <Button
+                    android:id="@+id/log_out"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/version_control"
+                    android:background="@drawable/list_button"
+                    android:drawableEnd="@mipmap/ic_action_arrow"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/rubik_medium"
+                    android:maxLines="1"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text="Logout"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="false"
+                    android:textColor="@color/product_name"
+                    android:textSize="16sp"
+                    tools:ignore="MissingPrefix" />
 
 
             </RelativeLayout>

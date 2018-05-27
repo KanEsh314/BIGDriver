@@ -1,5 +1,6 @@
 package bigcar.com.bigcardriver
 
+import android.app.ProgressDialog
 import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -13,6 +14,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import bigcar.com.bigcardriver.R.id.recycleViewCurrent
+import bigcar.com.bigcardriver.R.id.toolbar_current
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
@@ -34,6 +37,12 @@ class CurrentTripActivity : AppCompatActivity() {
         supportActionBar!!.setDisplayShowHomeEnabled(true)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
+        val progressDialog = ProgressDialog(this, R.style.DialogTheme)
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER)
+        progressDialog.setTitle("Please Wait")
+        progressDialog.setMessage("Loading")
+        progressDialog.show()
+
         val currentAdapter = CurrentAdapter()
         val currentLayoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
         recycleViewCurrent!!.layoutManager = currentLayoutManager
@@ -46,11 +55,14 @@ class CurrentTripActivity : AppCompatActivity() {
 
                 val currentTour = response.getJSONObject("data")
                 currentAdapter.addJsonObject(currentTour)
+
+                progressDialog.dismiss()
                 currentAdapter.notifyDataSetChanged()
             }
 
         }, object : Response.ErrorListener{
             override fun onErrorResponse(error: VolleyError) {
+                progressDialog.dismiss()
                 Log.d("Debug", error.toString())
             }
 

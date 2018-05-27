@@ -44,7 +44,7 @@
                 android:background="#90000000">
 
                 <TextView
-                    fontPath="fonts/SourceSansPro-Semibold.ttf"
+                    android:fontFamily="@font/rubik_light"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
@@ -98,6 +98,7 @@
                 android:textAlignment="center"
                 android:textColor="@color/product_name"
                 android:textSize="20sp"
+                android:fontFamily="@font/rubik_light"
                 tools:ignore="MissingPrefix" />
 
             <!-- SEPERATOR -->
@@ -138,7 +139,7 @@
 
                     <TextView
                         android:id="@+id/label_name"
-                        fontPath="fonts/SourceSansPro-Regular.ttf"
+                        android:fontFamily="@font/rubik_light"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
@@ -149,7 +150,7 @@
 
                     <EditText
                         android:id="@+id/register_name"
-                        fontPath="fonts/SourceSansPro-Regular.ttf"
+                        android:fontFamily="@font/rubik_light"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/label_name"
@@ -164,7 +165,7 @@
 
                     <TextView
                         android:id="@+id/label_ic_passport_number"
-                        fontPath="fonts/SourceSansPro-Regular.ttf"
+                        android:fontFamily="@font/rubik_light"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/register_name"
@@ -176,7 +177,7 @@
 
                     <EditText
                         android:id="@+id/register_ic_passport"
-                        fontPath="fonts/SourceSansPro-Regular.ttf"
+                        android:fontFamily="@font/rubik_light"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/label_ic_passport_number"
@@ -191,7 +192,7 @@
 
                     <TextView
                         android:id="@+id/label_email"
-                        fontPath="fonts/SourceSansPro-Regular.ttf"
+                        android:fontFamily="@font/rubik_light"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/register_ic_passport"
@@ -203,7 +204,7 @@
 
                     <EditText
                         android:id="@+id/register_email"
-                        fontPath="fonts/SourceSansPro-Regular.ttf"
+                        android:fontFamily="@font/rubik_light"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/label_email"
@@ -218,7 +219,7 @@
 
                     <TextView
                         android:id="@+id/label_address"
-                        fontPath="fonts/SourceSansPro-Regular.ttf"
+                        android:fontFamily="@font/rubik_light"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/register_email"
@@ -230,7 +231,7 @@
 
                     <EditText
                         android:id="@+id/register_address"
-                        fontPath="fonts/SourceSansPro-Regular.ttf"
+                        android:fontFamily="@font/rubik_light"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/label_address"
@@ -245,7 +246,7 @@
 
                     <TextView
                         android:id="@+id/label_phonenumber"
-                        fontPath="fonts/SourceSansPro-Regular.ttf"
+                        android:fontFamily="@font/rubik_light"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/register_address"
@@ -257,7 +258,7 @@
 
                     <EditText
                         android:id="@+id/register_phonenumber"
-                        fontPath="fonts/SourceSansPro-Regular.ttf"
+                        android:fontFamily="@font/rubik_light"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/label_phonenumber"
@@ -273,7 +274,7 @@
                     <!--CONFIRM PASSWORD-->
                     <TextView
                         android:id="@+id/label_password"
-                        fontPath="fonts/SourceSansPro-Regular.ttf"
+                        android:fontFamily="@font/rubik_light"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/register_phonenumber"
@@ -285,7 +286,7 @@
 
                     <EditText
                         android:id="@+id/register_password"
-                        fontPath="fonts/SourceSansPro-Regular.ttf"
+                        android:fontFamily="@font/rubik_light"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/label_password"
@@ -300,7 +301,7 @@
 
                     <TextView
                         android:id="@+id/label_reg_number"
-                        fontPath="fonts/SourceSansPro-Regular.ttf"
+                        android:fontFamily="@font/rubik_light"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/register_password"
@@ -312,7 +313,7 @@
 
                     <EditText
                         android:id="@+id/register_number"
-                        fontPath="fonts/SourceSansPro-Regular.ttf"
+                        android:fontFamily="@font/rubik_light"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/label_reg_number"
@@ -327,7 +328,7 @@
 
                     <TextView
                         android:id="@+id/label_model"
-                        fontPath="fonts/SourceSansPro-Regular.ttf"
+                        android:fontFamily="@font/rubik_light"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/register_number"
@@ -339,7 +340,7 @@
 
                     <EditText
                         android:id="@+id/register_model"
-                        fontPath="fonts/SourceSansPro-Regular.ttf"
+                        android:fontFamily="@font/rubik_light"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/label_model"
@@ -354,7 +355,7 @@
 
                     <TextView
                         android:id="@+id/label_license"
-                        fontPath="fonts/SourceSansPro-Regular.ttf"
+                        android:fontFamily="@font/rubik_light"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/register_model"
@@ -366,7 +367,7 @@
 
                     <EditText
                         android:id="@+id/register_license"
-                        fontPath="fonts/SourceSansPro-Regular.ttf"
+                        android:fontFamily="@font/rubik_light"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/label_license"
@@ -383,6 +384,8 @@
                         android:id="@+id/vehicle_id"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/rubik_light"
+                        android:spinnerMode="dialog"
                         android:layout_below="@+id/register_license"
                         android:layout_marginBottom="20dp"
                         android:background="@drawable/custom_edittext"
@@ -392,6 +395,8 @@
                         android:id="@+id/location"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/rubik_light"
+                        android:spinnerMode="dialog"
                         android:layout_below="@+id/vehicle_id"
                         android:layout_marginBottom="20dp"
                         android:background="@drawable/custom_edittext"
@@ -405,7 +410,7 @@
                         android:background="@drawable/rounded_corner_green">
 
                         <TextView
-                            fontPath="fonts/SourceSansPro-Semibold.ttf"
+                            android:fontFamily="@font/rubik_light"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
@@ -420,7 +425,7 @@
 
             <TextView
                 android:id="@+id/t_n_c"
-                fontPath="fonts/SourceSansPro-Regular.ttf"
+                android:fontFamily="@font/rubik_light"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/form_wrapper"
