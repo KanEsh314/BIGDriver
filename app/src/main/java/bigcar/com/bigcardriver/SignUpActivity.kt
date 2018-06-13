@@ -13,6 +13,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import bigcar.com.bigcardriver.R.id.*
 import kotlinx.android.synthetic.main.activity_sign_up.*
 import org.json.JSONException
 import java.util.HashMap
@@ -35,7 +36,8 @@ class SignUpActivity : AppCompatActivity() {
 
     var profileHolder: String = ""
     var icpassportHolder: String = ""
-    var nameHolder: String = ""
+    var firstnameHolder: String = ""
+    var lastnameHolder: String = ""
     var emailHolder: String = ""
     var addressHolder: String = ""
     var phoneHolder: String = ""
@@ -161,7 +163,7 @@ class SignUpActivity : AppCompatActivity() {
         val stringRequest = object : StringRequest(Request.Method.POST, registerURL, object : Response.Listener<String> {
             override fun onResponse(response: String?) {
                 progressDialog.dismiss()
-                startActivity(Intent(applicationContext, LoginActivity::class.java))
+                startActivity(Intent(applicationContext, SuccessRegisterActivity::class.java))
                 //Toast.makeText(applicationContext, response, Toast.LENGTH_LONG).show()
             }
 
@@ -169,7 +171,7 @@ class SignUpActivity : AppCompatActivity() {
                 object : Response.ErrorListener{
                     override fun onErrorResponse(error: VolleyError?) {
                         progressDialog.dismiss()
-                        //Toast.makeText(applicationContext, error.toString(), Toast.LENGTH_LONG).show()
+                        Toast.makeText(applicationContext, error.toString(), Toast.LENGTH_LONG).show()
                     }
 
                 }){
@@ -177,7 +179,8 @@ class SignUpActivity : AppCompatActivity() {
             override fun getParams(): Map<String, String> {
                 val params = HashMap<String, String>()
                 params.put("profilepic", profileHolder)
-                params.put("name", nameHolder)
+                params.put("first_name", firstnameHolder)
+                params.put("last_name", lastnameHolder)
                 params.put("ic", icpassportHolder)
                 params.put("email", emailHolder)
                 params.put("address", addressHolder)
@@ -188,27 +191,30 @@ class SignUpActivity : AppCompatActivity() {
                 params.put("license_number", licenseHolder)
                 params.put("vehicletype_id", vehicleTypeHolder)
                 params.put("location", locationHolder)
+                Log.d("Debug", params.toString())
                 return params
             }
         }
 
         val requestQueue = Volley.newRequestQueue(this)
+        stringRequest.retryPolicy = DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS * 5, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT)
         requestQueue.add(stringRequest)
     }
 
     private fun CheckEditTextIsEmptyOrNot() {
 
-        nameHolder = register_name.text.toString()
+        firstnameHolder = register_first_name.text.toString()
+        lastnameHolder = register_last_name.text.toString()
         icpassportHolder = register_ic_passport.text.toString()
         emailHolder = register_email.text.toString()
-        addressHolder = register_phonenumber.text.toString()
+        addressHolder = register_address.text.toString()
         phoneHolder = register_phonenumber.text.toString()
         passwordHolder = register_password.text.toString()
         regHolder = register_number.text.toString()
         modelHolder = register_model.text.toString()
         licenseHolder = register_license.text.toString()
 
-        if (TextUtils.isEmpty(nameHolder) || TextUtils.isEmpty(icpassportHolder) || TextUtils.isEmpty(emailHolder) || TextUtils.isEmpty(addressHolder) || TextUtils.isEmpty(phoneHolder) || TextUtils.isEmpty(passwordHolder) || TextUtils.isEmpty(regHolder) || TextUtils.isEmpty(modelHolder) || TextUtils.isEmpty(licenseHolder)){
+        if (TextUtils.isEmpty(firstnameHolder) || TextUtils.isEmpty(lastnameHolder) || TextUtils.isEmpty(icpassportHolder) || TextUtils.isEmpty(emailHolder) || TextUtils.isEmpty(addressHolder) || TextUtils.isEmpty(phoneHolder) || TextUtils.isEmpty(passwordHolder) || TextUtils.isEmpty(regHolder) || TextUtils.isEmpty(modelHolder) || TextUtils.isEmpty(licenseHolder)){
             CheckEditText = false
         }else {
             CheckEditText = true

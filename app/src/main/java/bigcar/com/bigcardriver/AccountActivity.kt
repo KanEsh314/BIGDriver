@@ -30,6 +30,7 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_account.*
 import org.json.JSONObject
 import java.io.ByteArrayOutputStream
+import java.net.URLEncoder
 import java.nio.charset.Charset
 import java.nio.charset.StandardCharsets
 
@@ -43,7 +44,8 @@ class AccountActivity : AppCompatActivity() {
     lateinit var bitmap: Bitmap
 
     var profileHolder: String = ""
-    var nameHolder: String = ""
+    var firstnameHolder: String = ""
+    var lastnameHolder: String = ""
     var numberHolder: String = ""
     var addressHolder: String = ""
 
@@ -76,7 +78,8 @@ class AccountActivity : AppCompatActivity() {
                 }else{
                     Picasso.with(applicationContext).load(userInfo.getString("profilepic")).into(profilePicture)
                 }
-                name.text = Editable.Factory.getInstance().newEditable(userInfo.getString("name"))
+                first_name.text = Editable.Factory.getInstance().newEditable(userInfo.getString("first_name"))
+                last_name.text = Editable.Factory.getInstance().newEditable(userInfo.getString("last_name"))
                 hp_nbr.text = Editable.Factory.getInstance().newEditable(userInfo.getString("phonenumber"))
                 address.text = Editable.Factory.getInstance().newEditable(userInfo.getString("address"))
                 progressDialog.dismiss()
@@ -111,10 +114,10 @@ class AccountActivity : AppCompatActivity() {
                 profilePicture.setImageBitmap(bitmap)
 
                 val baos = ByteArrayOutputStream()
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 70, baos)
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
                 val imageBytes = baos.toByteArray()
                 profileHolder = Base64.encodeToString(imageBytes, Base64.DEFAULT)
-
+                Log.d("Debug", profileHolder)
             }catch (e: Exception){
                 e.printStackTrace()
             }
@@ -144,13 +147,22 @@ class AccountActivity : AppCompatActivity() {
 
     private fun userUpadate() {
 
+        val progressDialog = ProgressDialog(this, R.style.DialogTheme)
+        progressDialog.setMessage("Please Wait")
+        progressDialog.show()
+
         val sharedPreferences = applicationContext.getSharedPreferences("myPref", Context.MODE_PRIVATE).getString("myToken","")
         val stringRequest = object : StringRequest(Request.Method.POST, updateURL, object : Response.Listener<String>{
             override fun onResponse(response: String?) {
+                progressDialog.dismiss()
+                Toast.makeText(applicationContext, "Your Profile Successfully Updated", Toast.LENGTH_LONG).show()
                 onBackPressed()
             }
         }, object : Response.ErrorListener{
             override fun onErrorResponse(error: VolleyError?) {
+                progressDialog.dismiss()
+                Toast.makeText(applicationContext, "Your Profile Fail To Update", Toast.LENGTH_LONG).show()
+                onBackPressed()
                 Log.d("Debug", error.toString())
             }
         }){
@@ -163,10 +175,10 @@ class AccountActivity : AppCompatActivity() {
             override fun getParams():Map<String, String> {
                 val params = HashMap<String, String>()
                 params.put("profilepic", profileHolder)
-                params.put("name", nameHolder)
+                params.put("first_name", firstnameHolder)
+                params.put("last_name", lastnameHolder)
                 params.put("phonenumber", numberHolder)
                 params.put("address", addressHolder)
-                Log.d("Debug", params.toString())
                 return params
             }
         }
@@ -176,11 +188,12 @@ class AccountActivity : AppCompatActivity() {
     }
 
     private fun CheckEditTextIsEmptyOrNot() {
-        nameHolder = name.text.toString()
+        firstnameHolder = first_name.text.toString()
+        lastnameHolder = last_name.text.toString()
         numberHolder = hp_nbr.text.toString()
         addressHolder = address.text.toString()
 
-        if (TextUtils.isEmpty(nameHolder) || TextUtils.isEmpty(numberHolder) || TextUtils.isEmpty(addressHolder)){
+        if (TextUtils.isEmpty(firstnameHolder) || TextUtils.isEmpty(lastnameHolder) || TextUtils.isEmpty(numberHolder) || TextUtils.isEmpty(addressHolder)){
             CheckEditText = false
         }else {
             CheckEditText = true

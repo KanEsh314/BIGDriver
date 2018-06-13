@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".AccountActivity">
+    tools:context=".VehicleActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -29,7 +29,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="EDIT PROFILE"
+                    android:text="EDIT VEHICLE"
                     android:textColor="@color/colorAccent"
                     android:fontFamily="@font/rubik_light"
                     android:textSize="18sp"
@@ -48,38 +48,27 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profilePicture"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_margin="72dp"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="center"
-                android:translationZ="100000dp"
-                app:fabSize="normal" />
-
             <TextView
-                android:id="@+id/first_name_title"
+                android:id="@+id/car_registration_title"
                 android:fontFamily="@font/rubik_light"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/profilePicture"
                 android:layout_marginBottom="10dp"
                 android:paddingLeft="20dp"
                 android:paddingTop="20dp"
-                android:text="FIRST NAME"
+                android:text="Car Registration Number"
                 android:textColor="@color/card_sub_title"
                 android:textSize="14sp"
                 tools:ignore="MissingPrefix" />
 
             <EditText
-                android:id="@+id/first_name"
+                android:id="@+id/register_number"
                 android:fontFamily="@font/rubik_light"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_below="@id/first_name_title"
+                android:layout_below="@id/car_registration_title"
                 android:background="@drawable/list_button"
-                android:hint="Your First Name"
+                android:hint="Your Car Registration Number"
                 android:inputType="textCapWords"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
@@ -89,27 +78,27 @@
                 tools:ignore="MissingPrefix" />
 
             <TextView
-                android:id="@+id/last_name_title"
+                android:id="@+id/car_brand_title"
                 android:fontFamily="@font/rubik_light"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/first_name"
+                android:layout_below="@+id/register_number"
                 android:layout_marginBottom="10dp"
                 android:paddingLeft="20dp"
                 android:paddingTop="20dp"
-                android:text="LAST NAME"
+                android:text="BRAND-MODEL"
                 android:textColor="@color/card_sub_title"
                 android:textSize="14sp"
                 tools:ignore="MissingPrefix" />
 
             <EditText
-                android:id="@+id/last_name"
+                android:id="@+id/brand_model"
                 android:fontFamily="@font/rubik_light"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_below="@id/last_name_title"
+                android:layout_below="@id/car_brand_title"
                 android:background="@drawable/list_button"
-                android:hint="Your Last Name"
+                android:hint="Your Car Brand-Model"
                 android:inputType="textCapWords"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
@@ -119,27 +108,27 @@
                 tools:ignore="MissingPrefix" />
 
             <TextView
-                android:id="@+id/phone_title"
+                android:id="@+id/license_number_title"
                 android:fontFamily="@font/rubik_light"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/last_name"
+                android:layout_below="@id/brand_model"
                 android:layout_marginBottom="10dp"
                 android:paddingLeft="20dp"
                 android:paddingTop="20dp"
-                android:text="PHONE NUMBER"
+                android:text="Your License Number"
                 android:textColor="@color/card_sub_title"
                 android:textSize="14sp"
                 tools:ignore="MissingPrefix" />
 
             <EditText
-                android:id="@+id/hp_nbr"
+                android:id="@+id/license_number"
                 android:fontFamily="@font/rubik_light"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_below="@id/phone_title"
+                android:layout_below="@id/license_number_title"
                 android:background="@drawable/list_button"
-                android:hint="Your phone number"
+                android:hint="Your License Number"
                 android:inputType="number"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
@@ -149,34 +138,62 @@
                 tools:ignore="MissingPrefix" />
 
             <TextView
-                android:id="@+id/address_title"
+                android:id="@+id/vehicle_type_title"
                 android:fontFamily="@font/rubik_light"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/hp_nbr"
+                android:layout_below="@id/license_number"
                 android:layout_marginBottom="10dp"
                 android:paddingLeft="20dp"
                 android:paddingTop="20dp"
-                android:text="ADDRESS"
+                android:text="Vehicle Type"
                 android:textColor="@color/card_sub_title"
                 android:textSize="14sp"
                 tools:ignore="MissingPrefix" />
 
-            <EditText
-                android:id="@+id/address"
-                android:fontFamily="@font/rubik_light"
+            <Spinner
+                android:id="@+id/vehicle_type"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_below="@id/address_title"
+                android:fontFamily="@font/rubik_light"
+                android:spinnerMode="dialog"
+                android:layout_below="@+id/vehicle_type_title"
                 android:background="@drawable/list_button"
-                android:hint="Your phone number"
-                android:inputType="text"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:textAlignment="textStart"
                 android:textColor="@color/product_name"
                 android:textSize="16sp"
+                tools:ignore="MissingPrefix"/>
+
+            <TextView
+                android:id="@+id/country_title"
+                android:fontFamily="@font/rubik_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/vehicle_type"
+                android:layout_marginBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:text="Country"
+                android:textColor="@color/card_sub_title"
+                android:textSize="14sp"
                 tools:ignore="MissingPrefix" />
+
+            <Spinner
+                android:id="@+id/country"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:fontFamily="@font/rubik_light"
+                android:spinnerMode="dialog"
+                android:layout_below="@+id/country_title"
+                android:background="@drawable/list_button"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textAlignment="textStart"
+                android:textColor="@color/product_name"
+                android:textSize="16sp"
+                tools:ignore="MissingPrefix"/>
 
         </RelativeLayout>
     </android.support.v4.widget.NestedScrollView>

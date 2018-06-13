@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true"
+    android:background="@android:color/background_light"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SuccessRegisterActivity">
+
+    <LinearLayout
+        android:id="@+id/successContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/imgSuccess"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:gravity="center">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/user_dp"
+                android:layout_height="180dp"
+                android:layout_width="180dp"
+                android:layout_margin="16dp"
+                android:translationZ="100000dp"
+                app:fabSize="normal"
+                app:layout_anchor="@id/appbar"
+                app:layout_anchorGravity="bottom|center"
+                android:src="@mipmap/ic_launcher_round"
+                app:civ_border_width="2dp"
+                app:civ_border_color="@color/colorAccent"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/medium"
+            android:text="Registration Completed"
+            android:textAlignment="center"
+            android:textSize="@dimen/mediumUniversalText"
+            android:textColor="@color/colorDark"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/smallUniversalText"
+            android:textAlignment="center"
+            android:text="Please check registered email verification"
+            android:textSize="@dimen/mediumUniversalText"
+            android:textColor="@color/colorDark"/>
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/goLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:padding="@dimen/medium"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorAccent"
+        android:text="OK"/>
+
+
+</android.support.design.widget.CoordinatorLayout>

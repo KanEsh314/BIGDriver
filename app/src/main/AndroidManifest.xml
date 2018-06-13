@@ -43,7 +43,9 @@
 
         <activity android:name=".VehicleRegistrationActivity" />
         <activity android:name=".AcceptedTripActivity" />
-        <activity android:name=".CurrentTripActivity"></activity>
+        <activity android:name=".CurrentTripActivity" />
+        <activity android:name=".SuccessRegisterActivity" />
+        <activity android:name=".VehicleActivity"></activity>
     </application>
 
 </manifest>

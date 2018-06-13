@@ -217,6 +217,20 @@
                 android:textColor="@color/card_sub_title"
                 android:layout_marginBottom="30dp"/>
 
+            <TextView
+                android:id="@+id/register_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:layout_below="@id/forgot_password"
+                android:text="Sign Up Now"
+                android:layout_marginTop="15dp"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/rubik_light"
+                tools:ignore="MissingPrefix"
+                android:textSize="14sp"
+                android:textColor="@color/card_sub_title" />
+
         </RelativeLayout>
     </android.support.v4.widget.NestedScrollView>
 

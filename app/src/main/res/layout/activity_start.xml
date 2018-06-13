@@ -23,16 +23,16 @@
         android:layout_alignRight="@id/start_page_wrapper"
         android:layout_alignBottom="@id/start_page_wrapper">
 
-        <ImageButton
-            android:id="@+id/back_btn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@mipmap/icon_close"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="10dp"
-            android:clickable="true"
-            android:background="#00FFFFFF"/>
+        <!--<ImageButton-->
+            <!--android:id="@+id/back_btn"-->
+            <!--android:layout_width="50dp"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:src="@mipmap/icon_close"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_marginTop="30dp"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:clickable="true"-->
+            <!--android:background="#00FFFFFF"/>-->
 
         <RelativeLayout
             android:layout_width="match_parent"

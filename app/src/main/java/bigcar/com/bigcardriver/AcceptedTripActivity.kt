@@ -2,6 +2,9 @@ package bigcar.com.bigcardriver
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentManager
+import android.support.v4.app.FragmentPagerAdapter
 import android.util.Log
 import android.view.MenuItem
 import com.android.volley.AuthFailureError
@@ -15,8 +18,6 @@ import org.json.JSONObject
 
 class AcceptedTripActivity : AppCompatActivity() {
 
-    var acceptedURL = "https://gentle-atoll-11837.herokuapp.com/api/acceptedtrip"
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_accepted_trip)
@@ -25,28 +26,12 @@ class AcceptedTripActivity : AppCompatActivity() {
         supportActionBar!!.setDisplayShowHomeEnabled(true)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
-        val sharedPreferences = applicationContext.getSharedPreferences("myPref", MODE_PRIVATE).getString("myToken","")
-        var jsonRequest = object  : JsonObjectRequest(Request.Method.GET, acceptedURL, null, object : Response.Listener<JSONObject>{
-            override fun onResponse(response: JSONObject) {
-                Log.d("Debug", response.toString())
-            }
+        val acceptedPagerAdapter = ATAdapter(supportFragmentManager)
+        acceptedPagerAdapter!!.addFragment(AcceptedTourFragment(),"Tour")
+        acceptedPagerAdapter!!.addFragment(AcceptedAttractionFragment(), "Attraction")
 
-        }, object : Response.ErrorListener{
-            override fun onErrorResponse(error: VolleyError) {
-                Log.d("Debug", error.toString())
-            }
-
-        }){
-            @Throws(AuthFailureError::class)
-            override fun getHeaders():Map<String,String>{
-                val headers = HashMap<String, String>()
-                headers.put("Authorization", "Bearer "+sharedPreferences)
-                return headers
-            }
-        }
-
-        val requestVolley = Volley.newRequestQueue(applicationContext)
-        requestVolley.add(jsonRequest)
+        viewPagerAccepted.adapter = acceptedPagerAdapter
+        tabs_accepted.setupWithViewPager(viewPagerAccepted)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
@@ -57,5 +42,29 @@ class AcceptedTripActivity : AppCompatActivity() {
         }
 
         return super.onOptionsItemSelected(item)
+    }
+}
+
+class ATAdapter(fm: FragmentManager): FragmentPagerAdapter(fm) {
+
+    var mFm = fm
+    var mFragmentItems: ArrayList<Fragment> = ArrayList()
+    var mFragmentTitle: ArrayList<String> = ArrayList()
+
+    fun addFragment(fragment: Fragment, fragmentTitle: String) {
+        mFragmentItems.add(fragment)
+        mFragmentTitle.add(fragmentTitle)
+    }
+
+    override fun getItem(position: Int): Fragment {
+        return mFragmentItems[position]
+    }
+
+    override fun getCount(): Int {
+        return mFragmentItems.count()
+    }
+
+    override fun getPageTitle(position: Int): CharSequence {
+        return mFragmentTitle[position]
     }
 }

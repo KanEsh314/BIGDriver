@@ -4,4 +4,7 @@
     <string name="start_page_intro">BOOK THE TRIP AND ENJOY SEASON</string>
 
     <string name="no_location_detected">No location detected. Make sure location is enabled on the device.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

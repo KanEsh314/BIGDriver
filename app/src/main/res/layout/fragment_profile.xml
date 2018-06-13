@@ -21,7 +21,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:contentScrim="@color/start_page_overlay"
-
             android:fitsSystemWindows="true">
 
             <ImageView
@@ -142,10 +141,29 @@
                     tools:ignore="MissingPrefix" />
 
                 <Button
-                    android:id="@+id/current_trip"
+                    android:id="@+id/my_vehicle"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_below="@id/my_account"
+                    android:background="@drawable/list_button"
+                    android:drawableEnd="@mipmap/ic_action_arrow"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:text="My Vehicle"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="false"
+                    android:textColor="@color/product_name"
+                    android:fontFamily="@font/rubik_medium"
+                    android:textSize="16sp"
+                    tools:ignore="MissingPrefix" />
+
+                <Button
+                    android:id="@+id/current_trip"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/my_vehicle"
                     android:background="@drawable/list_button"
                     android:drawableEnd="@mipmap/ic_action_arrow"
                     android:text="Current Trip"
@@ -160,30 +178,30 @@
                     android:textAllCaps="false"
                     tools:ignore="MissingPrefix"/>
 
-                <!--<Button-->
-                    <!--android:id="@+id/accept_trip"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="50dp"-->
-                    <!--android:layout_below="@id/current_trip"-->
-                    <!--android:background="@drawable/list_button"-->
-                    <!--android:drawableEnd="@mipmap/ic_action_arrow"-->
-                    <!--android:text="Accepted Trip"-->
-                    <!--android:maxLines="1"-->
-                    <!--android:ellipsize="end"-->
-                    <!--android:paddingLeft="20dp"-->
-                    <!--android:paddingRight="20dp"-->
-                    <!--android:textAlignment="textStart"-->
-                    <!--android:textSize="16sp"-->
-                    <!--android:textColor="@color/product_name"-->
-                    <!--fontPath="fonts/SourceSansPro-Regular.ttf"-->
-                    <!--android:textAllCaps="false"-->
-                    <!--tools:ignore="MissingPrefix" />-->
+                <Button
+                    android:id="@+id/accept_trip"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/current_trip"
+                    android:background="@drawable/list_button"
+                    android:drawableEnd="@mipmap/ic_action_arrow"
+                    android:text="Accepted Trip"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:textAlignment="textStart"
+                    android:textSize="16sp"
+                    android:textColor="@color/product_name"
+                    android:fontFamily="@font/rubik_medium"
+                    android:textAllCaps="false"
+                    tools:ignore="MissingPrefix" />
 
                 <Button
                     android:id="@+id/completed_trip"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:layout_below="@id/current_trip"
+                    android:layout_below="@id/accept_trip"
                     android:background="@drawable/list_button"
                     android:drawableEnd="@mipmap/ic_action_arrow"
                     android:text="Completed Trip"
@@ -227,7 +245,7 @@
                     android:maxLines="1"
                     android:ellipsize="end"
                     android:paddingLeft="20dp"
-                    android:text="Version 1.0.0"
+                    android:text="Version 1.0.2"
                     android:paddingRight="20dp"
                     android:textAlignment="textStart"
                     android:textSize="16sp"

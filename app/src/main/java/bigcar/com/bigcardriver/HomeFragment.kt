@@ -14,6 +14,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import bigcar.com.bigcardriver.R.id.coordinateLayout
 import bigcar.com.bigcardriver.R.id.tripReceived
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -21,6 +22,8 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptor
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -100,7 +103,6 @@ class HomeFragment : Fragment(), OnMapReadyCallback {
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL)
         mMap.setOnMapLoadedCallback(object :GoogleMap.OnMapLoadedCallback{
             override fun onMapLoaded() {
-                mMap.addMarker(MarkerOptions().position(myLocation).title("Title can be anything"))
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myLocation,18F))
             }
 

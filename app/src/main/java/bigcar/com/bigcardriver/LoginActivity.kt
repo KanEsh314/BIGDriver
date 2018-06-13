@@ -5,6 +5,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.android.volley.AuthFailureError
@@ -20,7 +21,7 @@ import org.json.JSONObject
 class LoginActivity : AppCompatActivity() {
 
     var CheckEditText:Boolean = false
-    var loginURL = "http://gentle-atoll-11837.herokuapp.com/auth/login"
+    var loginURL = "https://gentle-atoll-11837.herokuapp.com/auth/driverlogin"
 
     var emailHolder:String = ""
     var passwordHolder:String = ""
@@ -32,6 +33,12 @@ class LoginActivity : AppCompatActivity() {
         forgot_password.setOnClickListener(object : View.OnClickListener{
             override fun onClick(v: View?) {
                 startActivity(Intent(applicationContext, ForgotActivity::class.java))
+            }
+        })
+
+        register_user.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(v: View?) {
+                startActivity(Intent(applicationContext, SignUpActivity::class.java))
             }
         })
 
@@ -68,16 +75,17 @@ class LoginActivity : AppCompatActivity() {
         val stringRequest = object : StringRequest(Request.Method.POST, loginURL, object : Response.Listener<String>{
             override fun onResponse(response: String?) {
                 val sharedPreferences = getSharedPreferences("myPref", MODE_PRIVATE)
+                val myToken = JSONObject(response)
+                Log.d("Debug", myToken.toString())
                 try{
-                    val myToken = JSONObject(response)
+
                     sharedPreferences.edit().putString("myToken",myToken.getJSONObject("result").getString("token")).commit()
                     startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                 }catch (e : JSONException){
                     e.printStackTrace()
-                    Toast.makeText(applicationContext, "Please Check Your Email and Password", Toast.LENGTH_LONG).show()
                 }
                 progressDialog.dismiss()
-                //Toast.makeText(applicationContext, response, Toast.LENGTH_LONG).show()
+                Toast.makeText(applicationContext, myToken.getString("response"), Toast.LENGTH_LONG).show()
             }
         }, object : Response.ErrorListener{
             override fun onErrorResponse(error: VolleyError?) {

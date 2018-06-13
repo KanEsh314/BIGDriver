@@ -53,7 +53,7 @@ class ProfileFragment : Fragment() {
         var jsonRequest = object  : JsonObjectRequest(Request.Method.GET, userURL, null, object : Response.Listener<JSONObject>{
             override fun onResponse(response: JSONObject) {
                 val userInfo = response.getJSONObject("data")
-                name_user.text = userInfo.getString("name")
+                name_user.text = userInfo.getString("last_name")
 
                 if (userInfo.getString("profilepic") == ""){
                     user_dp.setImageResource(R.mipmap.ic_app_user)
@@ -91,11 +91,17 @@ class ProfileFragment : Fragment() {
             }
         })
 
-//        accept_trip.setOnClickListener(object : View.OnClickListener{
-//            override fun onClick(v: View?) {
-//                startActivity(Intent(context, AcceptedTripActivity::class.java))
-//            }
-//        })
+        my_vehicle.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(v: View?) {
+                startActivity(Intent(context, VehicleActivity::class.java))
+            }
+        })
+
+        accept_trip.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(v: View?) {
+                startActivity(Intent(context, AcceptedTripActivity::class.java))
+            }
+        })
 
         current_trip.setOnClickListener(object : View.OnClickListener{
             override fun onClick(v: View?) {
@@ -118,7 +124,7 @@ class ProfileFragment : Fragment() {
                         .setPositiveButton("Yes", object : DialogInterface.OnClickListener {
                             override fun onClick(dialog: DialogInterface?, which: Int) {
                                 context.getSharedPreferences("myPref", MODE_PRIVATE).edit().remove("myToken").commit()
-                                startActivity(Intent(activity, LoginActivity::class.java))
+                                startActivity(Intent(activity, StartActivity::class.java))
                             }
                         })
                         .setNegativeButton("No", object : DialogInterface.OnClickListener {

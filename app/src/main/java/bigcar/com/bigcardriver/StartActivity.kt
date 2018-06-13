@@ -4,6 +4,8 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import bigcar.com.bigcardriver.R.id.go_login_btn
+import bigcar.com.bigcardriver.R.id.go_register_btn
 import kotlinx.android.synthetic.main.activity_start.*
 
 class StartActivity : AppCompatActivity() {
@@ -23,11 +25,11 @@ class StartActivity : AppCompatActivity() {
                 startActivity(Intent(applicationContext, SignUpActivity::class.java))
             }
         })
+    }
 
-        back_btn.setOnClickListener(object : View.OnClickListener{
-            override fun onClick(v: View?) {
-                finish()
-            }
-        })
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
+        moveTaskToBack(true)
     }
 }
